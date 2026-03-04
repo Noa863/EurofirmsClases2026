@@ -72,13 +72,9 @@ index.html
 
 ---
 
-## 🎯 Objetivo
-
 Este proyecto está pensado para personas que quieren aprender **Git desde cero de forma clara, práctica y visual**.
 
 ---
-
-## 👩‍💻 Autor
 
 Proyecto creado por **Noa Antonio García**  
 © 2026 Noaurasoft
