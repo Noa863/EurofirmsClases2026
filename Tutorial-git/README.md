@@ -10,7 +10,7 @@ Incluye una pequeña web interactiva creada con **HTML, CSS y JavaScript**.
 👉 (Aquí pondrás el enlace cuando actives GitHub Pages)
 
 ```
-https://Noa863.github.io/tutorial-git
+https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 ```
 
 ---
