@@ -18,7 +18,7 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ---
 
-## 🛠 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 <p align="center">
 
