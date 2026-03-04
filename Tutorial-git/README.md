@@ -7,20 +7,21 @@ Incluye una pequeña web interactiva creada con **HTML, CSS y JavaScript**.
 
 ## 🚀 Demo
 
-👉 (Aquí pondrás el enlace cuando actives GitHub Pages)
-
-```
+👉 **Ver la demo:**  
 https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
-```
 
 ---
 
 ## 🛠 Tecnologías utilizadas
 
+<p align="center">
+
 ![HTML](https://img.shields.io/badge/HTML-5-orange?logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-3-blue?logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
 ![Git](https://img.shields.io/badge/Git-VersionControl-red?logo=git)
+
+</p>
 
 ---
 
@@ -48,13 +49,13 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 1️⃣ Clona el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/tutorial-git.git
+git clone https://github.com/Noa863/EurofirmsClases2026.git
 ```
 
 2️⃣ Entra en la carpeta
 
 ```bash
-cd tutorial-git
+cd EurofirmsClases2026/Tutorial-git
 ```
 
 3️⃣ Abre el archivo
@@ -73,4 +74,5 @@ Este proyecto está pensado para personas que quieren aprender **Git desde cero 
 
 ## 👩‍💻 Autor
 
-Proyecto creado por **Noa Antonio García**.
+Proyecto creado por **Noa Antonio García**  
+© 2026 Noaurasoft
