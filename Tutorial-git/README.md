@@ -1,7 +1,13 @@
-# 📚 Tutorial Git y GitHub desde cero
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="110">
+</p>
 
-Guía visual para aprender **Git y GitHub usando Git Bash**, explicada paso a paso.
-Incluye una pequeña web interactiva creada con **HTML, CSS y JavaScript**.
+<h1 align="center">📚 Tutorial Git y GitHub desde cero</h1>
+
+<p align="center">
+Guía visual para aprender <b>Git y GitHub usando Git Bash</b>, explicada paso a paso.<br>
+Incluye una pequeña web interactiva creada con <b>HTML, CSS y JavaScript</b>.
+</p>
 
 ---
 
@@ -16,10 +22,10 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 <p align="center">
 
-![HTML](https://img.shields.io/badge/HTML-5-orange?logo=html5)
-![CSS](https://img.shields.io/badge/CSS-3-blue?logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
-![Git](https://img.shields.io/badge/Git-VersionControl-red?logo=git)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
 
 </p>
 
@@ -27,14 +33,14 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ## 📂 Contenido del tutorial
 
-* Crear repositorio en GitHub
-* Clonar repositorio
-* Inicializar repositorio (`git init`)
-* Añadir archivos (`git add`)
-* Crear commits (`git commit`)
-* Subir cambios (`git push`)
-* Descargar cambios (`git pull`)
-* Cambiar repositorio remoto (`git remote`)
+- Crear repositorio en GitHub  
+- Clonar repositorio  
+- Inicializar repositorio (`git init`)  
+- Añadir archivos (`git add`)  
+- Crear commits (`git commit`)  
+- Subir cambios (`git push`)  
+- Descargar cambios (`git pull`)  
+- Cambiar repositorio remoto (`git remote`)  
 
 ---
 
@@ -44,35 +50,11 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ---
 
-## 💻 Cómo usar el proyecto
+## ⚡ Flujo rápido de Git
 
-1️⃣ Clona el repositorio
-
-```bash
-git clone https://github.com/Noa863/EurofirmsClases2026.git
-```
-
-2️⃣ Entra en la carpeta
+Ejemplo del flujo básico de trabajo:
 
 ```bash
-cd EurofirmsClases2026/Tutorial-git
-```
-
-3️⃣ Abre el archivo
-
-```
-index.html
-```
-
----
-
-## 🎯 Objetivo
-
-Este proyecto está pensado para personas que quieren aprender **Git desde cero de forma clara, práctica y visual**.
-
----
-
-## 👩‍💻 Autor
-
-Proyecto creado por **Noa Antonio García**  
-© 2026 Noaurasoft
+git add .
+git commit -m "mensaje"
+git push
