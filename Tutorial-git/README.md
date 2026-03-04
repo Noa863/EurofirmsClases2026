@@ -2,7 +2,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="110">
 </p>
 
-<h1 align="center">📚 Tutorial Git y GitHub desde cero</h1>
+<h1 align="center">Tutorial Git y GitHub desde cero</h1>
 
 <p align="center">
 Guía visual para aprender <b>Git y GitHub usando Git Bash</b>, explicada paso a paso.<br>
