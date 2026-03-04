@@ -50,11 +50,35 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ---
 
-## ⚡ Flujo rápido de Git
+## 💻 Cómo usar el proyecto
 
-Ejemplo del flujo básico de trabajo:
+1️⃣ Clona el repositorio
 
 ```bash
-git add .
-git commit -m "mensaje"
-git push
+git clone https://github.com/Noa863/EurofirmsClases2026.git
+```
+
+2️⃣ Entra en la carpeta
+
+```bash
+cd EurofirmsClases2026/Tutorial-git
+```
+
+3️⃣ Abre el archivo
+
+```
+index.html
+```
+
+---
+
+## 🎯 Objetivo
+
+Este proyecto está pensado para personas que quieren aprender **Git desde cero de forma clara, práctica y visual**.
+
+---
+
+## 👩‍💻 Autor
+
+Proyecto creado por **Noa Antonio García**  
+© 2026 Noaurasoft
