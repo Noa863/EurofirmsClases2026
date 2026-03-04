@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tutorial Git & GitHub (Desde 0)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⛓️</span>
+      <div>
+        <div class="title">Tutorial Git & GitHub</div>
+        <div class="subtitle">Desde 0, paso a paso (Git Bash friendly)</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <input id="searchInput" class="search" type="search" placeholder="Buscar… (ej: push, clone, remote)" />
+      <button id="themeBtn" class="btn ghost" type="button" aria-label="Cambiar tema">🌗</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sideHeader">
+        <div class="sideTitle">Índice</div>
+        <button id="collapseBtn" class="btn ghost small" type="button">⇔</button>
+      </div>
+
+      <nav id="nav" class="nav"></nav>
+
+      <div class="sideFooter">
+        <div class="tip">
+          Tip: usa <kbd>Ctrl</kbd> + <kbd>F</kbd> o el buscador de arriba 🔎
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="card intro">
+        <h1>Git y GitHub desde cero</h1>
+        <p>
+          Esta guía te enseña a: <b>crear repo</b>, <b>subir</b>, <b>clonar</b>, <b>editar</b>, y mantener tu flujo:
+          <span class="pill">add</span>
+          <span class="pill">commit</span>
+          <span class="pill">push</span>
+        </p>
+
+        <div class="grid2">
+          <div class="mini">
+            <h3>Flujo diario</h3>
+            <div class="codeblock">
+              <pre><code>git add .
+git commit -m "mensaje"
+git push</code></pre>
+              <button class="copyBtn" data-copy='git add .\ngit commit -m "mensaje"\ngit push'>Copiar</button>
+            </div>
+          </div>
+
+          <div class="mini">
+            <h3>Comprobar estado</h3>
+            <div class="codeblock">
+              <pre><code>git status
+git remote -v</code></pre>
+              <button class="copyBtn" data-copy="git status\ngit remote -v">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIONES -->
+      <article class="card section" id="crear-repo-github" data-title="1. Crear repo en GitHub">
+        <h2>1) Crear un repositorio en GitHub</h2>
+        <ol>
+          <li>En GitHub: <b>New repository</b>.</li>
+          <li>Pon nombre (ej: <code>EurofirmsClases2026</code>).</li>
+          <li>Elige Public/Private.</li>
+          <li>Crear.</li>
+        </ol>
+        <p class="note">Si marcas “Add a README”, GitHub creará un commit inicial.</p>
+      </article>
+
+      <article class="card section" id="clonar" data-title="2. Clonar un repositorio">
+        <h2>2) Clonar un repositorio</h2>
+        <p>Clonar = traer el repo del remoto a tu PC.</p>
+        <div class="codeblock">
+          <pre><code>cd /c/Laboratorio
+git clone https://github.com/USUARIO/REPO.git
+cd REPO</code></pre>
+          <button class="copyBtn" data-copy="cd /c/Laboratorio\ngit clone https://github.com/USUARIO/REPO.git\ncd REPO">Copiar</button>
+        </div>
+      </article>
+
+      <article class="card section" id="init-local" data-title="3. Crear repo desde carpeta local (git init)">
+        <h2>3) Crear repo desde una carpeta local (git init)</h2>
+        <p>Si ya tienes una carpeta con archivos y quieres versionarla:</p>
+        <div class="codeblock">
+          <pre><code>cd /c/Laboratorio/mi-proyecto
+git init</code></pre>
+          <button class="copyBtn" data-copy="cd /c/Laboratorio/mi-proyecto\ngit init">Copiar</button>
+        </div>
+        <p class="note">La carpeta donde está <code>.git</code> es la <b>raíz real</b> del repositorio.</p>
+      </article>
+
+      <article class="card section" id="primer-commit" data-title="4. add + commit (primera versión)">
+        <h2>4) Añadir archivos y crear el primer commit</h2>
+        <div class="codeblock">
+          <pre><code>git add .
+git commit -m "primer commit"</code></pre>
+          <button class="copyBtn" data-copy='git add .\ngit commit -m "primer commit"'>Copiar</button>
+        </div>
+        <p class="note">Si Git dice que no hay cambios, es que ya está guardado.</p>
+      </article>
+
+      <article class="card section" id="remote" data-title="5. Conectar con GitHub (remote origin)">
+        <h2>5) Conectar el repo local con GitHub (remote)</h2>
+        <p>Conecta tu repo local a tu repo en GitHub:</p>
+        <div class="codeblock">
+          <pre><code>git remote add origin https://github.com/USUARIO/REPO.git
+git remote -v</code></pre>
+          <button class="copyBtn" data-copy="git remote add origin https://github.com/USUARIO/REPO.git\ngit remote -v">Copiar</button>
+        </div>
+      </article>
+
+      <article class="card section" id="primer-push" data-title="6. Subir a GitHub (push -u)">
+        <h2>6) Subir a GitHub (primer push con upstream)</h2>
+        <p>La primera vez suele ser:</p>
+        <div class="codeblock">
+          <pre><code>git branch -M main
+git push -u origin main</code></pre>
+          <button class="copyBtn" data-copy="git branch -M main\ngit push -u origin main">Copiar</button>
+        </div>
+        <p class="note">Después ya será solo <code>git push</code>.</p>
+      </article>
+
+      <article class="card section" id="flujo-diario" data-title="7. Flujo diario (editar, add, commit, push)">
+        <h2>7) Flujo diario</h2>
+        <div class="grid2">
+          <div class="mini">
+            <h3>Ver cambios</h3>
+            <div class="codeblock">
+              <pre><code>git status
+git diff</code></pre>
+              <button class="copyBtn" data-copy="git status\ngit diff">Copiar</button>
+            </div>
+          </div>
+          <div class="mini">
+            <h3>Subir cambios</h3>
+            <div class="codeblock">
+              <pre><code>git add .
+git commit -m "actualizo X"
+git push</code></pre>
+              <button class="copyBtn" data-copy='git add .\ngit commit -m "actualizo X"\ngit push'>Copiar</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card section" id="pull" data-title="8. Descargar cambios (pull)">
+        <h2>8) Descargar cambios del remoto (pull)</h2>
+        <p>Si alguien (o tú desde otro PC) subió cambios, tráelos:</p>
+        <div class="codeblock">
+          <pre><code>git pull</code></pre>
+          <button class="copyBtn" data-copy="git pull">Copiar</button>
+        </div>
+      </article>
+
+      <article class="card section" id="reparar-remote" data-title="9. Cambiar remoto (set-url)">
+        <h2>9) Cambiar el remoto (cuando estaba apuntando al repo del profe)</h2>
+        <div class="codeblock">
+          <pre><code>git remote -v
+git remote set-url origin https://github.com/USUARIO/REPO.git
+git remote -v</code></pre>
+          <button class="copyBtn" data-copy="git remote -v\ngit remote set-url origin https://github.com/USUARIO/REPO.git\ngit remote -v">Copiar</button>
+        </div>
+      </article>
+
+      <article class="card section" id="borrar-git" data-title="10. Quitar Git de una carpeta (rm -rf .git)">
+        <h2>10) Quitar Git de una carpeta (empezar limpio)</h2>
+        <p>Esto elimina el historial Git de esa carpeta (no borra tus archivos):</p>
+        <div class="codeblock">
+          <pre><code>rm -rf .git
+git init</code></pre>
+          <button class="copyBtn" data-copy="rm -rf .git\ngit init">Copiar</button>
+        </div>
+        <p class="warn">Ojo: perderás el historial local, úsalo solo si quieres reiniciar.</p>
+      </article>
+
+      <footer class="footer">
+        <div class="toastHint">Tip: pulsa “Copiar” para pegar comandos en Git Bash ✨</div>
+      </footer>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
