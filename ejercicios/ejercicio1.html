@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="description" content="Descripción" />
+  <meta charset="utf-8">
+  <title>Mi primera clase en Bootcamp Desarrollo Web</title>
+</head>
+
+<body>
+  <p>Hello Word</p>
+  <p>Esta prueba funciona perfectamente!</p>
+  <h1>Titulo h1</h1>
+  <h2>Titulo h2</h2>
+  <h6>Titulo h3</h6>
+  <!-- Este es un comentario -->
+  <!-- Colocar el Codigo - Shift + Alt + F -->
+  <!-- 🖱 Otra forma con el ratón Click derecho en el archivo Selecciona 
+          Format DocumentColocar el Codigo - Shift + Alt + F -->
+
+  <!--hmtl es un lengua de marcado -->
+  <!-- <br> salta una linea -->
+
+  <span>Este es un spam</span>
+  <span>Este es otro spam</span>
+
+  <p>
+    Mi Nombre es <span>Noa Antonio Garcia</span>, y estoy feliz. <br>
+    Aqui empiez una nueva linea.
+    Aqui No empieza otra linea.
+    <hr>
+    Todo
+    este
+    texto
+    apare
+    en
+    una
+    única
+    linea
+  </p>
+
+  <span>Hola</span>
+  <span>Mundo</span>
+
+<!-- 
+Resultado en la página:
+
+Hola Mundo
+
+La etiqueta <span> es un elemento en línea.
+Esto significa que los elementos aparecen uno al lado del otro.
+-->
+
+  <p>Hola</p>
+  <p>Mundo</p>
+<!-- 
+Resultado en la página:
+
+Hola
+
+Mundo
+
+La etiqueta <p> crea un párrafo.
+Los párrafos son elementos de bloque, por lo que siempre empiezan en una nueva línea.
+-->
+
+
+  <!-- 
+CSS sirve para aplicar estilos al HTML.
+Permite cambiar colores, tamaños, fuentes, espacios y diseño.
+Aquí usamos CSS para cambiar el color del texto dentro de las etiquetas span.
+-->
+
+  <style>
+    span {
+      color: rgb(200, 0, 207);
+    }
+  </style>
+
+<!-- El hr crea una linea en horizontal -->
+<hr> 
+
+<!-- Etiqueta <div> Contenedor generico de tipo block sesiones de estilos -->
+
+<div>
+<div> Este es mi primer div </div>
+<div> Y <strong>Este</strong> es mi sengudo div usando la etiqueta "strong" </div>
+<div> Y <b>Este</b> es mi tercer div usando estiqueta "b" </div>
+</div>
+
+<!-- Lista ordenada: <ol> Elementos de la lista: <li> -->
+<h2>Lista ordanada:</h2>
+<ol>
+<li>Elemento 1</li>
+<li>Elemento 2</li>
+<li>Elemento 3</li>
+</ol>
+
+<!-- Lista NO ordenada: <ul> Elementos de la lista: <li> -->
+<h2>Lista sin ordenar:</h2>
+<ul>
+<li>Elemento 1</li>
+<li>Elemento 2</li>
+<li>Elemento 3</li>
+</ul>
+
+
+<!-- Lista ordenada de mi biografía -->
+<h2>Biografía de Noa</h2>
+
+<ol>
+  <li>Mi nombre es Noa Antonio García.</li>
+  <li>Trabajo en el sector tecnológico.</li>
+  <li>Me gusta la programación y la arquitectura de software.</li>
+  <li>Estoy aprendiendo HTML, CSS y JavaScript.</li>
+  <li>Me gusta crear proyectos y construir herramientas tecnológicas.</li>
+  <li>También me gusta la música y la creatividad digital.</li>
+</ol>
+
+<!-- Mi Lista de intereses -->
+
+<h2>Cosas que me gustan</h2>
+
+<ul>
+  <li>Programar</li>
+  <li>Crear software</li>
+  <li>Aprender nuevas tecnologías</li>
+  <li>Diseñar páginas web</li>
+  <li>Escuchar música</li>
+  <li>Crear proyectos propios</li>
+</ul>
+
+<!--
+<ol>  = lista ordenada (con números)
+<ul>  = lista no ordenada (con puntos)
+<li>  = cada elemento dentro de la lista
+-->
+
+
+<!-- Mi Lista de intereses -->
+
+<h2>Cosas que me gustan</h2>
+
+<ul>
+
+  <li>Programar
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </li>
+
+  <li>Crear software
+    <ul>
+      <li>Aplicaciones web</li>
+      <li>Herramientas tecnológicas</li>
+      <li>Automatización</li>
+    </ul>
+  </li>
+
+  <li>Aprender nuevas tecnologías
+    <ul>
+      <li>Inteligencia Artificial</li>
+      <li>Arquitectura de software</li>
+      <li>Desarrollo moderno</li>
+    </ul>
+  </li>
+
+  <li>Diseñar páginas web
+    <ul>
+      <li>Diseño UI</li>
+      <li>Experiencia de usuario</li>
+      <li>Responsive design</li>
+    </ul>
+  </li>
+
+  <li>Escuchar música
+    <ul>
+      <li>Electrónica</li>
+      <li>Urbano</li>
+      <li>Producción musical</li>
+    </ul>
+  </li>
+
+  <li>Crear proyectos propios
+    <ul>
+      <li>Aplicaciones</li>
+      <li>Herramientas útiles</li>
+      <li>Ideas tecnológicas</li>
+    </ul>
+  </li>
+
+</ul>
+
+<!-- Ejemplo 1 — Cambiar color -->
+<p>Mi nombre es <span class="color">Noa</span></p>
+
+<style>
+.color{
+  color: red;
+}
+</style>
+
+
+<!-- Ejemplo 2 — Cambiar tamaño del texto -->
+<p>Este texto tiene una palabra <span class="grande">grande</span></p>
+
+<style>
+.grande{
+  font-size: 30px;
+}
+</style>
+
+<!-- Ejemplo 3 — Cambiar tipo de letra -->
+<p>Este texto tiene una palabra <span class="fuente">especial</span></p>
+
+<style>
+.fuente{
+  font-family: Arial;
+}
+</style>
+
+<!-- Ejemplo 4 — Fondo de color -->
+<p>Este texto tiene una palabra <span class="fondo">destacada</span></p>
+
+<style>
+.fondo{
+  background-color: yellow;
+}
+</style>
+
+
+<!-- Ejemplo 5 — Texto en negrita -->
+<p>Este texto tiene una palabra <span class="negrita">importante</span></p>
+
+<style>
+.negrita{
+  font-weight: bold;
+}
+</style>
+
+<!-- Ejemplo 6 — Subrayado -->
+<p>Este texto tiene una palabra <span class="subrayado">subrayada</span></p>
+
+<style>
+.subrayado{
+  text-decoration: underline;
+}
+</style>
+
+<!-- Ejemplo 7 — Varias cosas a la vez -->
+<p>Este texto tiene una palabra <span class="estilo">especial</span></p>
+
+<style>
+.estilo{
+  color: white;
+  background-color: purple;
+  padding: 5px;
+  border-radius: 5px;
+}
+</style>
+
+</body>
+</html>
