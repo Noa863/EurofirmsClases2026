@@ -11,7 +11,7 @@ Incluye una pequeña web interactiva creada con <b>HTML, CSS y JavaScript</b>.
 
 ---
 
-## 🚀 Demo
+## Demo
 
 👉 **Ver la demo:**  
 https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
@@ -44,13 +44,13 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ---
 
-## 🖼 Vista del proyecto
+## Vista del proyecto
 
 ![Tutorial Git](img/tutorial-preview.png)
 
 ---
 
-## 💻 Cómo usar el proyecto
+## Cómo usar el proyecto
 
 1️⃣ Clona el repositorio
 
