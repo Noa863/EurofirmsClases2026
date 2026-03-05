@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Noa ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #0f0f1a;
+            color: #e0e0ff;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(20, 20, 60, 0.95);
+            padding: 1rem;
+            text-align: center;
+            z-index: 100;
+            border-bottom: 2px solid #ff66cc;
+        }
+
+        nav a {
+            color: #ff99dd;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        section {
+            padding: 6rem 2rem 4rem;
+            min-height: 100vh;
+        }
+
+        #intro {
+            background: linear-gradient(to bottom, #1a0033, #0f001a);
+        }
+
+        #acerca {
+            background: linear-gradient(to bottom, #0f001a, #1a0033);
+        }
+
+        #contacto {
+            background: linear-gradient(to bottom, #1a0033, #0f001a);
+        }
+
+        h1,
+        h2 {
+            color: #ff99dd;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .paginas {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #ff66cc33;
+        }
+
+        .btn-arriba {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff66cc;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 102, 204, 0.5);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .btn-arriba:hover {
+            background: #ff99dd;
+            transform: scale(1.1);
+        }
+
+        a.enlace-especial {
+            color: #99ffdd;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#intro">Inicio</a>
+            <a href="#acerca">Acerca</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h1>Bienvenida a mi mundo, Noa 🌸</h1>
+        <div class="paginas">
+            <p>Este pequeño espacio es una ventana a mi universo creativo. Aquí es donde mezclo código, ideas y
+                proyectos que nacen de la curiosidad y las ganas de construir cosas nuevas. Cada línea de código
+                representa aprendizaje, evolución y un paso más en el camino del desarrollo.</p><br>
+            <p>Programar para mí no es solo escribir instrucciones para un ordenador. Es diseñar estructuras, imaginar
+                soluciones y transformar ideas en algo real. Desde páginas web hasta sistemas más complejos, todo
+                empieza con una simple idea y la decisión de intentarlo.</p><br>
+            <p>En este sitio voy guardando mis ejercicios, tutoriales y pequeños proyectos. Son como huellas de mi
+                aprendizaje, una forma de recordar todo lo que he ido construyendo mientras avanzo en el mundo del
+                desarrollo web.</p><br>
+            <p>Aquí tienes un <a href="https://github.com/Noa863" target="_blank" class="enlace-especial">acceso a mi
+                    repositorio de proyectos</a> donde voy compartiendo código, ejercicios y experimentos que forman
+                parte de mi proceso de aprendizaje 💜</p>
+        </div>
+    </section>
+
+    <section id="acerca">
+        <h2>Acerca de este espacio</h2>
+        <div class="paginas">
+            <p>Este proyecto nace como un lugar personal donde reunir conocimientos, prácticas y pequeñas creaciones. A
+                medida que aprendo nuevas tecnologías, este espacio evoluciona conmigo.</p><br>
+            <p>Trabajo principalmente con HTML, CSS y JavaScript, explorando cómo construir páginas funcionales, bien
+                estructuradas y fáciles de mantener. También estoy aprendiendo a usar herramientas como Git y GitHub
+                para organizar el desarrollo y compartir mis avances.</p><br>
+            <p>Más que una simple página, este sitio representa un proceso. Cada sección, cada enlace y cada cambio
+                forman parte de un camino de aprendizaje constante.</p><br>
+            <p>Si quieres volver al inicio del sitio puedes hacerlo desde <a href="#intro">aquí</a>, donde comienza este
+                pequeño universo digital.</p>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Conecta conmigo</h2>
+        <div class="paginas">
+            <p>Si te interesa el desarrollo web, la creación de proyectos digitales o simplemente explorar nuevas ideas
+                tecnológicas, este espacio está abierto para compartir conocimiento y seguir aprendiendo.</p><br>
+            <p>La tecnología cambia constantemente, y por eso siempre hay algo nuevo que descubrir. Este sitio seguirá
+                creciendo con nuevos proyectos, experimentos y recursos que formen parte de mi evolución como
+                desarrolladora.</p><br>
+            <p>También puedes encontrarme en otras plataformas donde comparto contenido, ideas y proyectos relacionados
+                con programación y creatividad digital.</p><br>
+            <p>Si quieres seguir explorando o conectar conmigo, puedes hacerlo desde <a
+                    href="https://noa863.github.io/EurofirmsClases2026/Tutorial-git/" target="_blank"
+                    class="enlace-especial">este enlace</a>.</p>
+        </div>
+    </section>
+
+    <a href="#" class="btn-arriba">↑</a>
+
+</body>
+
+</html>
