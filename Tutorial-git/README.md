@@ -33,14 +33,48 @@ https://noa863.github.io/EurofirmsClases2026/Tutorial-git/
 
 ## 📂 Contenido del tutorial
 
+- Flujo básico de Git  
 - Crear repositorio en GitHub  
 - Clonar repositorio  
 - Inicializar repositorio (`git init`)  
-- Añadir archivos (`git add`)  
-- Crear commits (`git commit`)  
-- Subir cambios (`git push`)  
+- Añadir archivos y crear commits (`git add` + `git commit`)  
+- Conectar repositorio local con GitHub (`git remote`)  
+- Subir proyecto a GitHub (`git push`)  
+- Flujo diario de trabajo (`git status`, `git diff`, `git add`, `git commit`, `git push`)  
 - Descargar cambios (`git pull`)  
-- Cambiar repositorio remoto (`git remote`)  
+- Cambiar repositorio remoto (`git remote set-url`)  
+- Quitar Git de una carpeta (`rm -rf .git`)  
+
+### Consola – comandos útiles
+
+- Ver directorio actual (`pwd`)  
+- Listar archivos y carpetas (`ls -al`)  
+- Limpiar pantalla (`clear`)  
+- Cambiar directorio (`cd carpeta`)  
+- Subir al directorio superior (`cd ..`)  
+- Crear carpeta (`mkdir carpeta`)  
+- Crear archivo (`touch archivo.txt`)  
+- Borrar archivo (`rm archivo.txt`)  
+
+### Funciones avanzadas de Git
+
+- Ignorar archivos (`.gitignore`)  
+- Ver historial de commits (`git log`)  
+- Trabajar con ramas (`git branch`, `git switch`)  
+- Unir ramas (`git merge`)  
+- Resolver conflictos  
+- Guardar cambios temporalmente (`git stash`)  
+- Deshacer cambios (`git restore`)  
+- Deshacer commits (`git reset`)  
+- Descargar cambios sin fusionar (`git fetch`)  
+- Crear versiones (`git tag`)  
+
+### Flujo completo de trabajo
+
+- Editar archivos  
+- `git add .`  
+- `git commit -m "mensaje"`  
+- `git push`
 
 ---
 
