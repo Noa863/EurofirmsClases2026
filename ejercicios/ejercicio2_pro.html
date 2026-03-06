@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Enlaces</title>
+
+<style>
+
+/* Estilo general de la página */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+    line-height:1.6;
+}
+
+/* Menú de navegación */
+ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    padding:0;
+}
+
+/* Estilo de enlaces */
+a{
+    color:#0066ff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* Espaciado entre secciones */
+section{
+    margin-top:60px;
+}
+
+/* Scroll suave */
+html{
+  scroll-behavior: smooth;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Punto superior de la página para volver arriba -->
+<h1 id="top">Mi página</h1>
+
+<!-- ===================================================== -->
+<!-- MENÚ DE NAVEGACIÓN -->
+<!-- ===================================================== -->
+
+<!-- Menú de navegación interno -->
+<ul>
+  <li><a href="#inicio">Inicio</a></li>
+  <li><a href="#servicios">Servicios</a></li>
+  <li><a href="#radio">Radio</a></li>
+  <li><a href="#contacto">Contacto</a></li>
+</ul>
+
+
+<!-- ===================================================== -->
+<!-- ENLACES BÁSICOS -->
+<!-- ===================================================== -->
+
+<section>
+
+<h2>Enlace abre en la misma pagina</h2>
+
+<!-- Etiqueta <a> (anchor) utilizada para crear un enlace que permite navegar a otra página -->
+<a href="https://google.com">Ir a Google</a>
+
+</section>
+
+
+<section>
+
+<h2>Enlace Absoluto</h2>
+
+<!-- Enlace absoluto: lleva a una página externa en internet -->
+<!-- Se usa la dirección completa (https + dominio) -->
+<a href="https://www.google.com">Ir a Google</a>
+
+<br><br>
+
+<!-- Enlace que se abre en una pestaña nueva -->
+<!-- target="_blank" indica que el enlace se abre en otra pestaña -->
+<a href="https://github.com" target="_blank">Ir a GitHub</a>
+
+</section>
+
+
+<section>
+
+<h2>Enlaces Relativos</h2>
+
+<!-- Enlace relativo: lleva a otra página dentro del mismo proyecto -->
+<!-- Solo se escribe el nombre del archivo -->
+<a href="contacto.html">Ir a la página de contacto</a>
+
+<br><br>
+
+<!-- Enlace relativo a un archivo dentro de una carpeta -->
+<!-- El navegador buscará dentro de la carpeta "imagenes" -->
+<a href="/Tutorial-git/img/tutorial-preview.png">Ver imagen</a>
+
+<br><br>
+
+<!-- Enlace relativo para subir una carpeta -->
+<!-- .. significa subir un nivel en la estructura de carpetas -->
+<a href="../index.html">Volver al inicio</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SECCIÓN INICIO -->
+<!-- ===================================================== -->
+
+<section id="inicio">
+
+<!-- Sección inicio -->
+<h2>Inicio</h2>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+</p>
+
+<!-- Volver arriba de la página - Ejemplo muy usando en webs -->
+<a href="#top">⬆ Volver arriba</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SECCIÓN SERVICIOS -->
+<!-- ===================================================== -->
+
+<section id="servicios">
+
+<!-- Sección servicios -->
+<h2>Servicios</h2>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+</p>
+
+<a href="#top">⬆ Volver arriba</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SECCIÓN RADIO -->
+<!-- ===================================================== -->
+
+<section id="radio">
+
+<!-- Sección radio -->
+<h2>Radio</h2>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+</p>
+
+<a href="#top">⬆ Volver arriba</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SECCIÓN CONTACTO -->
+<!-- ===================================================== -->
+
+<section id="contacto">
+
+<!-- Sección contacto -->
+<h2>Contacto</h2>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Lorem ipsum dolor sit amet consectetur adipiscing elit.
+</p>
+
+<a href="#top">⬆ Volver arriba</a>
+
+</section>
+
+
+<!-- 
+| Código             | Qué hace                            |
+| ------------------ | ----------------------------------- |
+| `<ul>`             | crea una lista                      |
+| `<li>`             | elemento de la lista                |
+| `<a>`              | crea un enlace                      |
+| `href="#titulo_1"` | apunta a un elemento con ese **id** |
+-->
+
+<!-- RESUMEN -->
+<!-- Enlace absoluto = dirección completa de internet -->
+<!-- Enlace relativo = archivo dentro del proyecto -->
+<!-- target="_blank" = abrir en una pestaña nueva -->
+
+<!-- Resumen
+Tipo de enlace	Ejemplo
+Absoluto	https://google.com
+Relativo	contacto.html
+Interno	#contacto -->
+
+</body>
+</html>

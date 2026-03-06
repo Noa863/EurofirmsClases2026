@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Editor HTML</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+
+<style>
+
+/* RESET */
+body{
+margin:0;
+font-family:Arial;
+background:#1e1e2f;
+color:white;
+}
+
+/* HEADER */
+header{
+display:flex;
+gap:10px;
+padding:10px;
+background:#2b2b3d;
+border-bottom:1px solid #444;
+}
+
+button{
+padding:8px 12px;
+border:none;
+cursor:pointer;
+background:#3a3a50;
+color:white;
+border-radius:5px;
+}
+
+button:hover{
+background:#4a4a70;
+}
+
+/* MAIN LAYOUT */
+main{
+display:flex;
+height:90vh;
+transition:0.3s;
+}
+
+main.vertical{
+flex-direction:column;
+}
+
+/* EDITOR */
+.editor{
+width:50%;
+height:100%;
+}
+
+main.vertical .editor{
+width:100%;
+height:50%;
+}
+
+/* PREVIEW */
+.preview{
+width:50%;
+height:100%;
+border:none;
+background:white;
+}
+
+main.vertical .preview{
+width:100%;
+height:50%;
+}
+
+/* CODEMIRROR */
+.CodeMirror{
+height:100%;
+font-size:14px;
+}
+
+/* PREVIEW CON PRISM */
+
+#previewCode{
+display:block;
+height:100%;
+overflow:auto;
+padding:20px;
+background:#ffffff;
+color:#000;
+}
+
+/* contenedor preview */
+
+.preview{
+width:50%;
+height:100%;
+}
+
+main.vertical .preview{
+width:100%;
+height:50%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<button onclick="run()">▶ Run</button>
+
+<button onclick="saveCode()">💾 Save Code</button>
+
+<button onclick="toggleTheme()">🎨 Change Theme</button>
+
+<button onclick="toggleOrientation()">↔ Change Orientation</button>
+
+</header>
+
+<main id="layout">
+
+<div class="editor">
+
+<textarea id="editor">
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Hola Noa</h1>
+<p>Tu mini editor funciona.</p>
+
+</body>
+</html>
+
+</textarea>
+
+</div>
+
+<iframe id="preview" class="preview"></iframe>
+
+</main>
+
+<script>
+
+let editor = CodeMirror.fromTextArea(document.getElementById("editor"),{
+
+mode:"htmlmixed",
+lineNumbers:true,
+theme:"default"
+
+});
+
+/* RUN CODE */
+
+function run(){
+
+let code = editor.getValue();
+
+document.getElementById("preview").srcdoc = code;
+
+}
+
+/* SAVE CODE */
+
+function saveCode(){
+
+let blob = new Blob([editor.getValue()],{type:"text/html"});
+let link = document.createElement("a");
+
+link.href = URL.createObjectURL(blob);
+link.download = "index.html";
+link.click();
+
+}
+
+/* CHANGE THEME */
+
+let dark=false;
+
+function toggleTheme(){
+
+dark=!dark;
+
+editor.setOption(
+"theme",
+dark ? "material-darker" : "default"
+);
+
+}
+
+/* CHANGE ORIENTATION */
+
+function toggleOrientation(){
+
+document
+.getElementById("layout")
+.classList
+.toggle("vertical");
+
+}
+
+/* RUN FIRST TIME */
+
+run();
+
+</script>
+
+</body>
+</html>

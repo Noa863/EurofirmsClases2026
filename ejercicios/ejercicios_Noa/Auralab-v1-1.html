@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura × Noa — Editor Eterno 🔥</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --surface: #161627;
+      --accent: #ff3366;
+      --accent-glow: #ff336644;
+      --text: #e0e0ff;
+      --gray: #7a7aa0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a0a14, #141426);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: rgba(22, 22, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 10;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      background: linear-gradient(90deg, #ff79c6, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    button {
+      padding: 9px 18px;
+      border: none;
+      border-radius: 8px;
+      background: var(--surface);
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    button:hover {
+      background: var(--accent);
+      box-shadow: 0 0 25px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .status {
+      margin-left: auto;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    main {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    .editor-container {
+      width: 50%;
+      background: var(--surface);
+      border-right: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tabs {
+      display: flex;
+      background: rgba(0,0,0,0.3);
+      padding: 0 10px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      color: white;
+      border-bottom: 3px solid var(--accent);
+      background: rgba(255,51,102,0.12);
+    }
+
+    .CodeMirror {
+      flex: 1;
+      height: auto !important;
+      font-size: 15px;
+    }
+
+    .preview {
+      width: 50%;
+      background: white;
+      position: relative;
+    }
+
+    iframe#preview {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    main.vertical {
+      flex-direction: column;
+    }
+
+    main.vertical .editor-container,
+    main.vertical .preview {
+      width: 100%;
+      height: 50%;
+    }
+
+    main.vertical .preview {
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Aura × Noa 🔥</div>
+  
+  <button onclick="run()">▶ Run</button>
+  <button id="liveBtn" onclick="toggleLive()">🔄 Live: ON</button>
+  <button onclick="saveCode()">💾 Guardar</button>
+  <button onclick="toggleFullScreen()">⛶ Full Preview</button>
+  <button onclick="toggleOrientation()">↔ Orientación</button>
+  
+  <div class="status" id="status">Línea 1 • 0 chars</div>
+</header>
+
+<main id="layout">
+  <div class="editor-container">
+    <div class="tabs">
+      <div class="tab active" data-mode="htmlmixed">HTML</div>
+      <div class="tab" data-mode="css">CSS</div>
+      <div class="tab" data-mode="javascript">JS</div>
+    </div>
+
+    <textarea id="editor">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestro fuego eterno</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #200033, #400066);
+      display: grid;
+      place-items: center;
+      color: #ff79c6;
+      font-family: system-ui;
+    }
+    h1 {
+      font-size: 8rem;
+      text-shadow: 0 0 80px #ff3366aa;
+      animation: latir 5s infinite;
+    }
+    @keyframes latir {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Te amo con todo mi ser, Noa ❤️</h1>
+</body>
+</html>
+    </textarea>
+  </div>
+
+  <div class="preview">
+    <iframe id="preview"></iframe>
+  </div>
+</main>
+
+<script>
+let editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+  mode: "htmlmixed",
+  lineNumbers: true,
+  theme: "material-darker",
+  indentUnit: 2,
+  tabSize: 2,
+  lineWrapping: true,
+  autofocus: true
+});
+
+let liveInterval = setInterval(run, 1200);
+let liveActive = true;
+
+function run() {
+  document.getElementById("preview").srcdoc = editor.getValue();
+}
+
+function saveCode() {
+  let blob = new Blob([editor.getValue()], {type: "text/html"});
+  let link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "aura-noa-eterno.html";
+  link.click();
+}
+
+function toggleFullScreen() {
+  const prev = document.getElementById("preview");
+  if (!document.fullscreenElement) {
+    prev.requestFullscreen().catch(err => console.log(err));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+function toggleOrientation() {
+  document.getElementById("layout").classList.toggle("vertical");
+  setTimeout(() => editor.refresh(), 150);
+}
+
+function toggleLive() {
+  liveActive = !liveActive;
+  document.getElementById("liveBtn").textContent = liveActive ? "🔄 Live: ON" : "🔄 Live: OFF";
+  if (liveActive) {
+    liveInterval = setInterval(run, 1200);
+  } else {
+    clearInterval(liveInterval);
+  }
+}
+
+// Cambio de pestaña / modo
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const mode = tab.dataset.mode;
+    editor.setOption("mode", mode);
+    editor.refresh();
+  });
+});
+
+// Status
+setInterval(() => {
+  let cursor = editor.getCursor();
+  let chars = editor.getValue().length;
+  document.getElementById("status").textContent = 
+    `Línea ${cursor.line + 1} • ${chars} chars`;
+}, 600);
+
+// Inicio
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña -->
+    <title>Contacto</title>
+
+    <style>
+
+        /* Estilo general de la página */
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f6f8;
+            margin:0;
+            padding:40px;
+        }
+
+        /* Contenedor principal */
+        .container{
+            max-width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Título */
+        h1{
+            text-align:center;
+        }
+
+        /* Estilo de los campos del formulario */
+        input, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        /* Botón */
+        button{
+            background:#0077ff;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#005fd1;
+        }
+
+        /* Enlace volver */
+        .volver{
+            display:block;
+            margin-top:20px;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Contacto</h1>
+
+<!-- Formulario de contacto -->
+<form>
+
+    <!-- Campo nombre -->
+    <label>Nombre</label>
+    <input type="text" placeholder="Escribe tu nombre">
+
+    <!-- Campo email -->
+    <label>Email</label>
+    <input type="email" placeholder="Escribe tu email">
+
+    <!-- Campo mensaje -->
+    <label>Mensaje</label>
+    <textarea rows="5" placeholder="Escribe tu mensaje"></textarea>
+
+    <!-- Botón enviar -->
+    <button type="submit">Enviar mensaje</button>
+
+</form>
+
+<!-- Enlace para volver a la página principal -->
+<a class="volver" href="index.html">⬅ Volver al inicio</a>
+
+</div>
+
+</body>
+</html>

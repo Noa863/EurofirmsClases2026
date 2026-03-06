@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Ejemplos de Enlaces HTML</title>
+
+    <style>
+
+        /* Estilo general de la página */
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f6f8;
+            margin:0;
+            padding:40px;
+            line-height:1.6;
+        }
+
+        /* Contenedor principal */
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:white;
+            padding:40px;
+            border-radius:10px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Títulos */
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        h2{
+            margin-top:40px;
+            color:#333;
+        }
+
+        /* Estilo de los enlaces */
+        a{
+            color:#0077ff;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+
+        /* Menú de navegación */
+        nav{
+            background:#222;
+            padding:15px;
+            border-radius:8px;
+            margin-bottom:30px;
+        }
+
+        nav a{
+            color:white;
+            margin-right:15px;
+        }
+
+        /* Hace que los enlaces internos bajen suavemente */
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* Espaciado entre secciones */
+        section{
+            margin-top:60px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="top">Ejemplos de Enlaces en HTML</h1>
+
+<!-- Menú de navegación interno -->
+<nav>
+
+    <!-- Enlace interno que lleva a distintas secciones de la página -->
+    <a href="#absoluto">Absoluto</a>
+    <a href="#relativo">Relativo</a>
+    <a href="#interno">Interno</a>
+    <a href="#radio">Radio</a>
+    <a href="contacto.html">Contacto</a>
+
+</nav>
+
+
+<!-- ===================================================== -->
+<!-- ENLACE QUE ABRE EN LA MISMA PÁGINA -->
+<!-- ===================================================== -->
+
+<section>
+
+<h2>Enlace que abre en la misma página</h2>
+
+<!-- Etiqueta <a> (anchor) utilizada para crear un enlace que permite navegar a otra página -->
+<a href="https://google.com">Ir a Google</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ENLACES ABSOLUTOS -->
+<!-- ===================================================== -->
+
+<section id="absoluto">
+
+<h2>Enlace Absoluto</h2>
+
+<!-- Enlace absoluto: lleva a una página externa en internet -->
+<!-- Se usa la dirección completa (https + dominio) -->
+<a href="https://www.google.com">Ir a Google</a>
+
+<br><br>
+
+<!-- Enlace que se abre en una pestaña nueva -->
+<!-- target="_blank" indica que el enlace se abre en otra pestaña -->
+<a href="https://github.com" target="_blank">Ir a GitHub</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ENLACES RELATIVOS -->
+<!-- ===================================================== -->
+
+<section id="relativo">
+
+<h2>Enlaces Relativos</h2>
+
+<!-- Enlace relativo: lleva a otra página dentro del mismo proyecto -->
+<!-- Solo se escribe el nombre del archivo -->
+<a href="contacto.html">Ir a la págfina de contacto</a>
+
+<br><br>
+
+<!-- Enlace relativo a un archivo dentro de una carpeta -->
+<!-- El navegador buscará dentro de la carpeta "imagenes" -->
+<a href="img/tutorial-preview.png">Ver imagen</a>
+
+<br><br>
+
+<!-- Enlace relativo para subir una carpeta -->
+<!-- .. significa subir un nivel en la estructura de carpetas -->
+<a href="../index.html">Volver al inicio</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ENLACES INTERNOS -->
+<!-- ===================================================== -->
+
+<section id="interno">
+
+<h2>Enlaces Internos</h2>
+
+<!-- Busca un elemento dentro de esta página que tenga ese id -->
+<a href="contacto.html">Ir a Contacto</a>
+
+<br><br>
+
+<!-- Menú de navegación interno -->
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="contacto.html">Contacto</a>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- SECCIONES INTERNAS -->
+<!-- ===================================================== -->
+
+<section id="inicio">
+
+<!-- Sección inicio -->
+<h2>Inicio</h2>
+
+<p>Bienvenida a mi web.</p>
+
+</section>
+
+
+<section id="servicios">
+
+<!-- Sección servicios -->
+<h2>Servicios</h2>
+
+<p>Aquí explicamos nuestros servicios.</p>
+
+</section>
+
+
+<section id="radio">
+
+<!-- Sección radio -->
+<h2>Radio</h2>
+
+<p>Contenido de la sección radio.</p>
+
+</section>
+
+
+<section id="contacto">
+
+<!-- Sección de contacto dentro de la página -->
+<h2>Contacto</h2>
+
+<p>Aquí está la información de contacto.</p>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- VOLVER ARRIBA -->
+<!-- ===================================================== -->
+
+<!-- Volver arriba de la página - Ejemplo muy usado en webs -->
+<p>
+<a href="#top">⬆ Volver arriba</a>
+</p>
+
+
+<!-- ===================================================== -->
+<!-- RESUMEN DIDÁCTICO -->
+<!-- ===================================================== -->
+
+<!-- 
+RESUMEN
+
+Tipo de enlace        Ejemplo
+----------------------------------
+Absoluto              https://google.com
+Relativo              contacto.html
+Interno               #contacto
+
+Código             Qué hace
+----------------------------------
+<ul>               crea una lista
+<li>               elemento de la lista
+<a>                crea un enlace
+href="#id"         apunta a un elemento con ese id
+
+-->
+
+</div>
+
+</body>
+</html>
