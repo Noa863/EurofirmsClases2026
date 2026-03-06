@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial Git y GitHub | NoauraSoft</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1120, #111827);
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1e293b);
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      color: #67e8f9;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .notice {
+      background: #172033;
+      border-left: 5px solid #22d3ee;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0 30px;
+      color: #dbeafe;
+    }
+
+    .step {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    }
+
+    .step h2 {
+      margin-top: 0;
+      color: #38bdf8;
+      font-size: 1.3rem;
+    }
+
+    .step p {
+      margin: 10px 0;
+      color: #d1d5db;
+    }
+
+    .step ul,
+    .step ol {
+      padding-left: 22px;
+      color: #d1d5db;
+    }
+
+    .mini-title {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #f8fafc;
+      font-weight: bold;
+      font-size: 0.98rem;
+    }
+
+    pre {
+      background: #020617;
+      color: #86efac;
+      padding: 14px;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1e293b;
+      margin: 10px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.95rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #22d3ee;
+      color: #06202a;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #67e8f9;
+      transform: translateY(-1px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #93c5fd;
+      font-size: 1rem;
+    }
+
+    .status-ok {
+      color: #86efac;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #083344;
+      color: #67e8f9;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .copy-msg {
+      margin-top: 8px;
+      color: #86efac;
+      font-size: 0.92rem;
+      min-height: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="hero">
+      <div class="tag">NoauraSoft · Tutorial práctico GitHub & Git Bash</div>
+      <h1>🛡️ Crear un repositorio en GitHub y hacer tu primera subida con Git Bash</h1>
+      <p>
+        Guía completa para no perderse: primero GitHub, luego carpeta local, después Git Bash
+        y por último la subida del proyecto. Una vez hecho el primer repositorio, el resto ya va rodado.
+      </p>
+    </section>
+
+    <div class="notice">
+      <strong>Importante:</strong> sigue el orden.  
+      Si primero no creas el repositorio, no copias la URL o no entras en la carpeta correcta desde Git Bash,
+      luego empiezan los errores y el lío.
+    </div>
+
+    <section class="step">
+      <h2>1️⃣ Crear el repositorio en GitHub</h2>
+      <p>Entra en GitHub y pulsa en <strong>New repository</strong> o <strong>Create repository</strong>.</p>
+
+      <div class="mini-title">Rellena estos campos:</div>
+      <ul>
+        <li><strong>Nombre del repositorio</strong></li>
+        <li><strong>Descripción del repositorio</strong></li>
+        <li>Pulsa el botón <strong>Create repository</strong></li>
+      </ul>
+
+      <div class="mini-title">Ejemplo:</div>
+      <pre><code>Nombre: noaurasoft
+Descripción: Repositorio de proyectos y experimentos de desarrollo</code></pre>
+    </section>
+
+    <section class="step">
+      <h2>2️⃣ Copiar la URL del repositorio</h2>
+      <p>
+        Cuando GitHub cree el repositorio, te mostrará la <strong>URL remota</strong>.
+        Esa URL hay que copiarla porque la usaremos más tarde en Git Bash.
+      </p>
+
+      <pre id="repo-url"><code>https://github.com/Noa863/noaurasoft.git</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('repo-url', 'msg-url')">Copiar URL</button>
+      </div>
+      <div id="msg-url" class="copy-msg"></div>
+
+      <div class="mini-title">Comando preparado con esa URL:</div>
+      <pre id="remote-prepared"><code>git remote add origin https://github.com/Noa863/noaurasoft.git</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('remote-prepared', 'msg-remote')">Copiar comando</button>
+      </div>
+      <div id="msg-remote" class="copy-msg"></div>
+    </section>
+
+    <section class="step">
+      <h2>3️⃣ Preparar la carpeta en tu ordenador</h2>
+      <p>
+        Antes de abrir Git Bash, prepara la estructura local. Esto evita trabajar en carpetas equivocadas.
+      </p>
+
+      <ol>
+        <li>Crea una carpeta principal llamada <strong>Repositorios</strong></li>
+        <li>Dentro crea la carpeta de tu proyecto, por ejemplo <strong>Proyecto1</strong></li>
+        <li>Dentro añade al menos un archivo, por ejemplo <strong>README.md</strong></li>
+      </ol>
+
+      <div class="mini-title">Ejemplo de estructura:</div>
+      <pre><code>C:\Repositorios\Proyecto1
+│
+└── README.md</code></pre>
+    </section>
+
+    <section class="step">
+      <h2>4️⃣ Abrir Git Bash y entrar en la carpeta del proyecto</h2>
+      <p>
+        Ahora sí, abre <strong>Git Bash</strong> y muévete hasta la carpeta donde está tu proyecto.
+      </p>
+
+      <pre id="cd-project"><code>cd /c/Repositorios/Proyecto1</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cd-project', 'msg-cd')">Copiar comando</button>
+      </div>
+      <div id="msg-cd" class="copy-msg"></div>
+
+      <p>
+        En este punto ya estás dentro del proyecto y ya puedes empezar a ejecutar Git correctamente.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>5️⃣ Ejecución en Git Bash: primera subida completa</h2>
+
+      <div class="mini-title">1. Inicializar el repositorio local</div>
+      <pre id="cmd-init"><code>git init</code></pre>
+
+      <div class="mini-title">2. Añadir los archivos</div>
+      <pre id="cmd-add"><code>git add .
+git add README.md</code></pre>
+      <p>
+        Usa <code>git add .</code> si quieres añadir todo, o <code>git add README.md</code>
+        si solo quieres añadir un archivo.
+      </p>
+
+      <div class="mini-title">3. Crear el commit</div>
+      <pre id="cmd-commit"><code>git commit -m "Primer commit del proyecto"</code></pre>
+
+      <div class="mini-title">4. Poner la rama principal como main</div>
+      <pre id="cmd-branch"><code>git branch -M main</code></pre>
+
+      <div class="mini-title">5. Conectar con GitHub</div>
+      <pre id="cmd-remote"><code>git remote add origin https://github.com/Noa863/noaurasoft.git</code></pre>
+
+      <div class="mini-title">6. Subir el proyecto al repositorio</div>
+      <pre id="cmd-push"><code>git push -u origin main</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cmd-init', 'msg-main')">Copiar git init</button>
+        <button onclick="copyBlock('cmd-add', 'msg-main')">Copiar git add</button>
+        <button onclick="copyBlock('cmd-commit', 'msg-main')">Copiar git commit</button>
+        <button onclick="copyBlock('cmd-branch', 'msg-main')">Copiar branch</button>
+        <button onclick="copyBlock('cmd-remote', 'msg-main')">Copiar remote</button>
+        <button onclick="copyBlock('cmd-push', 'msg-main')">Copiar push</button>
+      </div>
+      <div id="msg-main" class="copy-msg"></div>
+    </section>
+
+    <section class="step">
+      <h2>6️⃣ Comprobar el estado con <code>git status</code></h2>
+      <p>
+        Después de la subida, conviene comprobar cómo está el repositorio.
+        Así sabes si hay cambios pendientes o si todo ha quedado perfecto.
+      </p>
+
+      <pre id="cmd-status"><code>git status</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cmd-status', 'msg-status')">Copiar git status</button>
+      </div>
+      <div id="msg-status" class="copy-msg"></div>
+
+      <div class="mini-title">Ejemplo de resultado correcto:</div>
+      <pre><code>On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</code></pre>
+
+      <p class="status-ok">Eso significa que todo está subido y limpio. ✅</p>
+    </section>
+
+    <section class="step">
+      <h2>⚡ Modo rápido: rutina para subir el resto de archivos</h2>
+      <p>
+        Una vez hecho <strong>el primer repositorio y la primera subida</strong>, luego ya no necesitas repetir todo el proceso.
+        A partir de ahí, la rutina normal para subir cambios nuevos es esta:
+      </p>
+
+      <pre id="fast-mode"><code>git add .
+git commit -m "Descripción del cambio"
+git push</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('fast-mode', 'msg-fast')">Copiar rutina rápida</button>
+      </div>
+      <div id="msg-fast" class="copy-msg"></div>
+
+      <p>
+        Ejemplo real:
+      </p>
+
+      <pre><code>git add .
+git commit -m "Añadido index.html"
+git push</code></pre>
+    </section>
+
+    <section class="step">
+      <h2>🧰 Comandos útiles para Git Bash</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3><code>pwd</code></h3>
+          <p>Muestra el directorio actual.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>ls -al</code></h3>
+          <p>Muestra la lista de archivos del directorio actual.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>clear</code></h3>
+          <p>Limpia la pantalla.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>git status</code></h3>
+          <p>Muestra el estado del repositorio.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>cd carpeta</code></h3>
+          <p>Cambia al directorio deseado.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>cd ..</code></h3>
+          <p>Sube al directorio superior.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>mkdir carpeta</code></h3>
+          <p>Crea una nueva carpeta.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>touch archivo</code></h3>
+          <p>Crea un archivo nuevo.</p>
+        </div>
+
+        <div class="card">
+          <h3><code>rm archivo</code></h3>
+          <p>Borra un archivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <h2>💡 Resumen rápido del orden correcto</h2>
+      <pre id="summary-order"><code>1. Crear repositorio en GitHub
+2. Copiar la URL del repositorio
+3. Preparar carpeta local y archivo README.md
+4. Abrir Git Bash y entrar en la carpeta
+5. git init
+6. git add .
+7. git commit -m "Primer commit"
+8. git branch -M main
+9. git remote add origin URL_DEL_REPOSITORIO
+10. git push -u origin main
+11. git status</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('summary-order', 'msg-summary')">Copiar resumen</button>
+      </div>
+      <div id="msg-summary" class="copy-msg"></div>
+    </section>
+
+    <div class="footer">
+   Tutorial creado para el repositorio de prácticas - © 2026 NoauraSoft — Noa Antonio García
+    </div>
+
+  </div>
+
+  <script>
+    function copyBlock(id, msgId) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById(msgId).textContent = "Copiado al portapapeles ✅";
+        setTimeout(() => {
+          document.getElementById(msgId).textContent = "";
+        }, 2200);
+      }).catch(() => {
+        document.getElementById(msgId).textContent = "No se pudo copiar automáticamente";
+      });
+    }
+  </script>
+</body>
+</html>
