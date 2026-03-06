@@ -2,7 +2,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="110">
 </p>
 
-<h1 align="center">Tutorial Git y GitHub desde cero</h1>
+<h1 align="center">Tutorial Crear un repositorio en GitHub y hacer tu primera subida con Git Bash</h1>
 
 <p align="center">
 Guía visual para aprender <b>Git y GitHub usando Git Bash</b>, explicada paso a paso.<br>
@@ -65,6 +65,34 @@ Después de crear el repositorio, el flujo normal de trabajo será:
 git add .
 git commit -m "Descripción del cambio"
 git push
+
+---
+
+## Vista del proyecto
+
+![Tutorial Git](img/tutorial-preview.png)
+
+---
+
+## Cómo usar el proyecto
+
+1️⃣ Clona el repositorio
+
+```bash
+git clone https://github.com/Noa863/EurofirmsClases2026.git
+```
+
+2️⃣ Entra en la carpeta
+
+```bash
+cd EurofirmsClases2026/Tutorial-git
+```
+
+3️⃣ Abre el archivo
+
+```
+index.html
+```
 
 ---
 
