@@ -38,26 +38,28 @@ Este tutorial explica el **flujo completo de Git desde cero**, incluyendo:
 
 ### Creación del repositorio
 
-- Crear un repositorio en GitHub
-- Copiar la URL del repositorio
-- Preparar el proyecto en local
-- Crear la estructura de carpetas
+- Crear un repositorio en GitHub  
+- Copiar la URL del repositorio  
+- Preparar el proyecto en local  
+- Crear la estructura de carpetas  
 
 ### Trabajo desde Git Bash
 
-- Inicializar repositorio (`git init`)
-- Añadir archivos (`git add`)
-- Crear commits (`git commit`)
-- Cambiar rama principal (`git branch -M main`)
-- Conectar repositorio local con GitHub (`git remote add origin`)
-- Subir proyecto (`git push`)
+- Inicializar repositorio (`git init`)  
+- Añadir archivos (`git add`)  
+- Crear commits (`git commit`)  
+- Cambiar rama principal (`git branch -M main`)  
+- Conectar repositorio local con GitHub (`git remote add origin`)  
+- Subir proyecto (`git push`)  
 
 ### Verificación del repositorio
 
-- Comprobar estado (`git status`)
-- Revisar cambios antes de subir
+- Comprobar estado (`git status`)  
+- Revisar cambios antes de subir  
 
-### Flujo de trabajo diario
+---
+
+# 🔄 Flujo de trabajo diario
 
 Después de crear el repositorio, el flujo normal de trabajo será:
 
@@ -65,6 +67,9 @@ Después de crear el repositorio, el flujo normal de trabajo será:
 git add .
 git commit -m "Descripción del cambio"
 git push
+```
+
+Este es el flujo básico que utilizan la mayoría de desarrolladores cuando trabajan con Git.
 
 ---
 
@@ -76,19 +81,19 @@ git push
 
 ## Cómo usar el proyecto
 
-1️⃣ Clona el repositorio
+### 1️⃣ Clona el repositorio
 
 ```bash
 git clone https://github.com/Noa863/EurofirmsClases2026.git
 ```
 
-2️⃣ Entra en la carpeta
+### 2️⃣ Entra en la carpeta del tutorial
 
 ```bash
-cd EurofirmsClases2026/Tutorial-git
+cd EurofirmsClases2026/Tutorial-git-bash
 ```
 
-3️⃣ Abre el archivo
+### 3️⃣ Abre el archivo en tu navegador
 
 ```
 index.html
@@ -96,9 +101,21 @@ index.html
 
 ---
 
-Este proyecto está pensado para personas que quieren aprender **Git desde cero de forma clara, práctica y visual**.
+## Objetivo del proyecto
+
+Este proyecto está pensado para personas que quieren aprender **Git y GitHub desde cero de forma clara, práctica y visual**.
+
+El tutorial está construido como una pequeña **web interactiva**, para que los estudiantes puedan copiar comandos directamente y entender el flujo real de trabajo.
 
 ---
 
-Proyecto creado por **Noa Antonio García**  
-© 2026 Noaurasoft
+## Autora
+
+**Noa Antonio García**
+
+Arquitecta de software en formación  
+Desarrollo web • Inteligencia artificial • Arquitectura de software
+
+---
+
+© 2026 **NoauraSoft**
