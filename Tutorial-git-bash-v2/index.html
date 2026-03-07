@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial Git y GitHub | NoauraSoft</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1120, #111827);
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1e293b);
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      color: #67e8f9;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .notice {
+      background: #172033;
+      border-left: 5px solid #22d3ee;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0 30px;
+      color: #dbeafe;
+    }
+
+    .step {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    }
+
+    .step h2 {
+      margin-top: 0;
+      color: #38bdf8;
+      font-size: 1.3rem;
+    }
+
+    .step p {
+      margin: 10px 0;
+      color: #d1d5db;
+    }
+
+    .step ul,
+    .step ol {
+      padding-left: 22px;
+      color: #d1d5db;
+    }
+
+    .mini-title {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #f8fafc;
+      font-weight: bold;
+      font-size: 0.98rem;
+    }
+
+    pre {
+      background: #020617;
+      color: #86efac;
+      padding: 14px;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1e293b;
+      margin: 10px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.95rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #22d3eed8;
+      color: #06202a;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #67e8f9;
+      transform: translateY(-1px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #93c5fd;
+      font-size: 1rem;
+    }
+
+    .status-ok {
+      color: #86efac;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #083344;
+      color: #67e8f9;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .copy-msg {
+      margin-top: 8px;
+      color: #86efac;
+      font-size: 0.92rem;
+      min-height: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    .arg {
+      color: #ffb86c;
+      font-weight: 600;
+    }
+
+    .com {
+      color: #86efac;
+    }
+
+    .raiz {
+      color: #ffcc4b;
+    }
+
+    .gitbash {
+      color: #939393;
+    }
+
+    .archivo {
+      color: #eeeeee;
+    }
+
+    .repo {
+      color: #68ffc0b0;
+    }
+
+    /* Botón para subir */
+    #btnSubir {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      background: #2b2b2b;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      display: none;
+      z-index: 9999;
+      transition: all 0.3s ease;
+    }
+
+    #btnSubir:hover {
+      background: #3a3a3a;
+      transform: translateY(-3px);
+    }
+
+    #btnSubir:active {
+      transform: scale(0.95);
+    }
+
+    .cmd-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #020817;
+      border: 1px solid #1f2a44;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+
+    .cmd-box code {
+      color: #7CFFB2;
+      font-family: monospace;
+      font-size: 16px;
+    }
+
+    .url-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: monospace;
+      font-size: 16px;
+      width: 340px;
+      color: #ffb84d;
+    }
+
+    /* texto gris cuando está vacío */
+    .url-input::placeholder {
+      color: #7a8699;
+      opacity: 0.7;
+    }
+
+    .copy-btn {
+      background: #2b2b2b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #3a3a3a;
+    }
+
+    .tip-box {
+      background: #0b1730;
+      border-left: 4px solid #4da3ff;
+      padding: 14px 18px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      color: #d9e6ff;
+      font-size: 15px;
+    }
+
+    /* Diagrama */
+
+    .diagram {
+      background: #020817;
+      border: 1px solid #1f2a44;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .diagram pre {
+      margin: 0;
+      color: #7CFFB2;
+      font-family: monospace;
+      font-size: 15px;
+    }
+
+    /* TUTORIAL */
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      width: 650px;
+      max-height: 70vh;
+      background: #0b1220;
+      border-radius: 12px;
+      border: 1px solid #1f2a44;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: #020817;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      max-height: 55vh;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+    }
+
+    .guia-btn {
+      background: #1f2a44;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* PARA QUE LA GUIA RESPIRE MEJOR */
+
+    .modal-content {
+      width: 900px;
+      max-width: 92%;
+      max-height: 82vh;
+      background: #0b1220;
+      border-radius: 12px;
+      border: 1px solid #1f2a44;
+      overflow: hidden;
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      max-height: 72vh;
+    }
+
+    /* Scrollbar para el modal */
+
+    .modal-body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: #020817;
+      border-radius: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: #2b2b40;
+      border-radius: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: #44446a;
+    }
+
+    /* Para borrar completamente un repositorio en GitHub debes hacerlo desde la web. */
+
+    .terminal-box {
+      background: linear-gradient(180deg, #020617, #020617);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      margin-top: 15px;
+    }
+
+    .terminal-header {
+      background: #020617;
+      padding: 10px 14px;
+      border-bottom: 1px solid #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .red {
+      background: #ff5f56;
+    }
+
+    .yellow {
+      background: #ffbd2e;
+    }
+
+    .green {
+      background: #27c93f;
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .terminal-box pre {
+      margin: 0;
+      padding: 18px;
+      color: #6ee7b7;
+      font-family: monospace;
+      line-height: 1.6;
+    }
+
+    /* Alerta Roja */
+
+    .danger-summary {
+      color: #ff6b6b;
+      font-weight: bold;
+      animation: pulse-danger 2s infinite;
+    }
+
+    @keyframes pulse-danger {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* para que se vean bonitros los link*/
+    .card a {
+      color: #67e8f9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <section class="hero">
+      <button id="btnGuia" class="guia-btn">📘 Guía rápida</button>
+      <button id="btnProgramas" class="guia-btn"> 🧰 Programas necesarios</button>
+
+      <div class="tag">NoauraSoft · Tutorial práctico GitHub & Git Bash</div>
+      <h1>🛡️ Crear un repositorio en GitHub y subir tu proyecto usando Git Bash</h1>
+      <p>
+        Guía completa para no perderse: primero Git Bash, luego carpeta local, después
+        Git Bash
+        y por último la subida del proyecto. Una vez hecho el primer repositorio, el resto ya va rodado.
+      </p>
+    </section>
+
+    <!-- GUIA RÁPIDA -->
+
+    <div id="guiaModal" class="modal">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <span>📘 Guía rápida completa del tutorial</span>
+          <button id="cerrarGuia">✖</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="tip-box">
+            💡 <strong>Esta guía resume todo el flujo del tutorial para que tengas claro qué hace cada parte y en qué
+              orden se usa.</strong>
+          </div>
+
+          <div class="grid">
+
+            <div class="card">
+              <h3>Git</h3>
+              <p>
+                Es el <strong>sistema de control de versiones</strong>.
+                Permite guardar cambios, crear commits y llevar el historial del proyecto.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Git Bash</h3>
+              <p>
+                Es la <strong>terminal</strong> que usaremos en Windows para ejecutar
+                los comandos de Git con formato parecido a Linux.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>GitHub</h3>
+              <p>
+                Es la <strong>plataforma en la nube</strong> donde creamos el repositorio
+                y subimos nuestro proyecto.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="notice">
+            <strong>Orden correcto del proceso:</strong><br><br>
+            1️⃣ Crear el repositorio en GitHub.<br>
+            2️⃣ Copiar la URL del repositorio.<br>
+            3️⃣ Preparar la carpeta del proyecto en local.<br>
+            4️⃣ Abrir Git Bash y entrar en la carpeta.<br>
+            5️⃣ Inicializar Git, añadir archivos, hacer commit y conectar GitHub.<br>
+            6️⃣ Subir el proyecto y comprobar el estado con <code>git status</code>.
+          </div>
+
+          <div class="mini-title">📂 Estructura mínima del proyecto en local</div>
+          <pre><code>/c/Repositorios/Proyecto1
+│
+└── README.md</code></pre>
+
+          <div class="mini-title">🧭 Cómo se representa una ruta de Windows en Git Bash</div>
+          <p>
+            En Git Bash, las rutas de Windows se escriben con formato Linux.
+          </p>
+
+          <pre><code>C:\Laboratorio    →    /c/Laboratorio</code></pre>
+
+          <div class="mini-title">🧠 Flujo real de Git</div>
+          <div class="diagram">
+            <pre><code>Archivos modificados
+        │
+        │  git add
+        ▼
+Staging Area
+        │
+        │  git commit
+        ▼
+Repositorio Git
+        │
+        │  git push
+        ▼
+GitHub</code></pre>
+          </div>
+
+          <div class="mini-title">⚡ Comandos principales que usarás</div>
+
+          <div class="grid">
+
+            <div class="card">
+              <h3><code><span class="com">git init</span></code></h3>
+              <p>Inicializa Git dentro de la carpeta del proyecto.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git add .</span></code></h3>
+              <p>Añade todos los archivos modificados al área de preparación.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git commit -m</span> <span class="arg">"mensaje"</span></code></h3>
+              <p>Guarda los cambios en el historial del proyecto.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git branch -M</span> <span class="arg">main</span></code></h3>
+              <p>Define la rama principal como <strong>main</strong>.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git remote add origin</span> <span class="raiz">URL</span></code></h3>
+              <p>Conecta tu proyecto local con el repositorio remoto de GitHub.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git push -u origin main</span></code></h3>
+              <p>Sube por primera vez el proyecto a GitHub.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git status</span></code></h3>
+              <p>Comprueba el estado del repositorio y si todo está limpio.</p>
+            </div>
+
+            <div class="card">
+              <h3><code><span class="com">git pull</span></code></h3>
+              <p>Descarga y aplica los cambios del repositorio remoto.</p>
+            </div>
+
+          </div>
+
+          <div class="mini-title">🚀 Rutina rápida después de la primera subida</div>
+          <pre><code>git add .
+git commit -m "Descripción del cambio"
+git push</code></pre>
+
+          <div class="notice">
+            <strong>Importante:</strong> una vez que el primer repositorio ya está creado y conectado,
+            normalmente después solo tendrás que usar <code>git add</code>, <code>git commit</code> y
+            <code>git push</code>.
+          </div>
+
+          <div class="mini-title">🗑️ Sobre eliminar repositorios</div>
+          <p>
+            Los comandos de eliminación como <code>rm -rf .git</code> o
+            <code>git remote remove origin</code> solo afectan a tu ordenador.
+            Para borrar un repositorio de GitHub debes hacerlo desde la web.
+          </p>
+
+          <div class="terminal-box">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-title">Resumen final</span>
+            </div>
+
+            <pre><code>Git      → controla versiones
+Git Bash → ejecuta comandos
+GitHub   → guarda el repositorio online
+
+Primera subida:
+git init
+git add .
+git commit -m "Primer commit"
+git branch -M main
+git remote add origin URL_DEL_REPOSITORIO
+git push -u origin main
+git status</code></pre>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FIN GUIA RÁPIDA -->
+
+    <!-- Programas necesarios antes de empezar el tutorial -->
+    <div id="programasModal" class="modal">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <span>🧰 Programas necesarios antes de empezar</span>
+          <button id="cerrarProgramas">✖</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="tip-box">
+            💡 <strong>Antes de seguir el tutorial debes tener instalados estos programas:</strong>
+          </div>
+
+          <div class="grid">
+
+            <div class="card">
+              <h3>GitHub</h3>
+              <p>
+                Plataforma en la nube donde guardaremos nuestros repositorios
+                y compartiremos nuestros proyectos.
+              </p>
+              <p>
+                🔗 <a href="https://github.com" target="_blank">Abrir GitHub</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Git + Git Bash</h3>
+              <p>
+                Git es el sistema de control de versiones.
+                Al instalar <strong>Git for Windows</strong> también se instala
+                <strong>Git Bash</strong>, la terminal que usaremos en el tutorial.
+              </p>
+              <p>
+                🔗 <a href="https://gitforwindows.org/" target="_blank">Descargar Git for Windows</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Visual Studio Code</h3>
+              <p>
+                Editor de código gratuito y muy utilizado para programar
+                páginas web, aplicaciones y proyectos con Git.
+              </p>
+              <p>
+                🔗 <a href="https://code.visualstudio.com/" target="_blank">Descargar Visual Studio Code</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Node.js (opcional)</h3>
+              <p>
+                Entorno de ejecución para JavaScript que permite crear servidores,
+                herramientas de desarrollo y ejecutar scripts desde la terminal.
+              </p>
+              <p>
+                🔗 <a href="https://nodejs.org/es/download" target="_blank">Descargar Node.js</a>
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Fin Programas Necesarios -->
+
+    <div class="notice">
+      <strong>Importante:</strong> sigue este orden para evitar errores:
+
+      <br><br>
+
+      1️⃣ Crea tu repositorio en GitHub.<br>
+      2️⃣ Prepara la estructura del proyecto en tu ordenador.<br>
+      3️⃣ Añade los archivos de tu proyecto.<br>
+      4️⃣ Guarda los cambios con un commit.<br>
+      5️⃣ Sube tu proyecto a GitHub.<br>
+      6️⃣ Comprueba el estado del repositorio usando: <code>git status</code>.
+
+    </div>
+
+    <section class="step">
+      <h2>1️⃣ Crear el repositorio en GitHub</h2>
+      <p>Entra en GitHub y pulsa en <span class="repo"><strong>"Home"
+          </strong></span> despues <span class="repo"><strong>"New"</strong></span> o <span class="repo"><strong>"Create
+            a new repository"</strong></span></p>
+
+      <div class="mini-title">Rellena estos campos:</div>
+      <ul>
+        <li>Nombre del repositorio</li>
+        <li>Descripción del repositorio</li>
+        <li>Create repository</li>
+      </ul>
+
+      <div class="mini-title">Ejemplo:</div>
+      <pre><code>Nombre: <span class="gitbash"><strong>noaurasoft</strong></span>
+Descripción: <span class="gitbash"><strong>Repositorio de proyectos y experimentos de desarrollo</strong></span></code></pre>
+    </section>
+
+    <section class="step">
+      <h2>2️⃣ Copiar la URL del repositorio</h2>
+      <p>
+        Cuando GitHub cree el repositorio, te mostrará la <strong>URL remota</strong>.
+        Esa URL hay que copiarla porque la usaremos más tarde en Git Bash.
+      </p>
+
+      <pre
+        id="repo-url"><code> <span class="gitbash"><strong>https://github.com/Noa863/noaurasoft.git</strong></span></code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('repo-url', 'msg-url')">Copiar URL</button>
+      </div>
+      <div id="msg-url" class="copy-msg"></div>
+
+      <div class="mini-title">Comando preparado con esa URL:</div>
+      <pre
+        id="remote-prepared"><code>git remote add origin <span class="raiz"><strong>https://github.com/Noa863/noaurasoft.git</strong></span></code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('remote-prepared', 'msg-remote')">Copiar comando</button>
+      </div>
+      <div id="msg-remote" class="copy-msg"></div>
+    </section>
+
+    <section class="step">
+      <h2>3️⃣ Preparar la carpeta en tu ordenador</h2>
+      <p>
+        Antes de abrir Git Bash, prepara la estructura local. Esto evita trabajar en carpetas equivocadas.
+      </p>
+
+      <ol>
+        <li>Crea un directorio principal llamada <span class="raiz"> <strong>Repositorios</strong></span></li>
+        <li>Dentro crea el directorio de tu proyecto, por ejemplo <span class="raiz"> <strong>Proyecto1</strong></li>
+        <li>Dentro añade al menos un archivo, por ejemplo <span class="archivo"> <strong>README.md</strong></span></li>
+      </ol>
+
+      <div class="mini-title">Ejemplo de estructura:</div>
+      <pre><code>/c/Repositorios/Proyecto1
+│
+└── README.md</code></pre>
+    </section>
+
+    <section class="step">
+      <h2>4️⃣ Abrir Git Bash y entrar en la carpeta del proyecto</h2>
+      <p>
+        Ahora sí, abre <strong>Git Bash</strong> y muévete hasta la carpeta donde está tu proyecto.
+      </p>
+
+      <pre id="cd-project"><code>cd /c/Repositorios/Proyecto1</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cd-project', 'msg-cd')">Copiar comando</button>
+      </div>
+      <div id="msg-cd" class="copy-msg"></div>
+
+      <p>
+        En este punto ya estás dentro del proyecto y ya puedes empezar a ejecutar Git correctamente.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>5️⃣ Ejecución en Git Bash: primera subida completa a GibHub 🚀</h2>
+
+      <div class="mini-title">1. Inicializar el repositorio local</div>
+      <pre id="cmd-init"><code>git init</code></pre>
+
+      <div class="mini-title">2. Añadir archivos al proyecto</div>
+
+      <div class="tip-box">
+        💡 En Git existe una zona llamada <strong>Staging Area</strong>.
+        Es donde se preparan los archivos antes de crear un <code>commit</code>.
+        El comando <code>git add</code> mueve los archivos a esta zona temporal.
+      </div>
+
+      <div class="diagram">
+        <pre><code>
+Archivos modificados
+        │
+        │  git add
+        ▼
+Staging Area (archivos preparados)
+        │
+        │  git commit
+        ▼
+Repositorio Git
+</code></pre>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3><code><span class="com">git add .</span></code></h3>
+          <p>Añade <strong>todos los archivos modificados</strong> al área de preparación (staging).</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">git add </span><span class="raiz">README.md</span></code></h3>
+          <p>Añade <strong>solo un archivo específico</strong> al área de preparación.</p>
+        </div>
+
+      </div>
+
+      <p>
+        Después de añadir los archivos al <strong>Staging Area</strong>, podrás confirmar
+        los cambios utilizando el comando <code>git commit</code>.
+      </p>
+
+      <div class="mini-title">3. Crear el commit</div>
+      <pre id="cmd-commit"><code>git commit -m <span class="raiz">"Primer commit del proyecto"</span></code></pre>
+
+      <div class="mini-title">4. Poner la rama principal como main</div>
+      <pre id="cmd-branch"><code>git branch -M main</code></pre>
+
+      <div class="mini-title">5. Conectar el repositorio local con GitHub</div>
+
+      <div class="tip-box">
+        💡 <strong>Truco útil:</strong> puedes pegar aquí la URL de tu repositorio y pulsar
+        <strong>Copiar</strong>. El comando se generará automáticamente para que solo tengas
+        que pegarlo en Git Bash.
+      </div>
+
+      <div class="cmd-box">
+
+        <code>
+          git remote add origin 
+          <input 
+            id="repoURL"
+            class="url-input"
+            placeholder="pega aquí la URL de tu repositorio">
+        </code>
+
+        <button id="copyCmd" class="copy-btn">Copiar</button>
+
+      </div>
+
+      <p>
+        Este comando vincula el repositorio local de tu ordenador con el repositorio remoto en GitHub.
+        Después podrás enviar cambios al servidor usando <code>git push</code>.
+      </p>
+
+      <div class="mini-title">6. Subir el proyecto al repositorio</div>
+      <pre id="cmd-push"><code>git push -u origin main</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cmd-init', 'msg-main')">Copiar git init</button>
+        <button onclick="copyBlock('cmd-add', 'msg-main')">Copiar git add</button>
+        <button onclick="copyBlock('cmd-commit', 'msg-main')">Copiar git commit</button>
+        <button onclick="copyBlock('cmd-branch', 'msg-main')">Copiar branch</button>
+        <button onclick="copyBlock('cmd-remote', 'msg-main')">Copiar remote</button>
+        <button onclick="copyBlock('cmd-push', 'msg-main')">Copiar push</button>
+      </div>
+      <div id="msg-main" class="copy-msg"></div>
+    </section>
+
+    <section class="step">
+      <h2>6️⃣ Comprobar el estado con <code>git status</code></h2>
+      <p>
+        Después de la subida, conviene comprobar cómo está el repositorio.
+        Así sabes si hay cambios pendientes o si todo ha quedado perfecto.
+      </p>
+
+      <pre id="cmd-status"><code>git status</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('cmd-status', 'msg-status')">Copiar git status</button>
+      </div>
+      <div id="msg-status" class="copy-msg"></div>
+
+      <div class="mini-title">Ejemplo de resultado correcto:</div>
+      <pre><code>On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</code></pre>
+
+      <p class="status-ok">Eso significa que todo está subido y limpio. ✅</p>
+    </section>
+
+    <section class="step">
+      <h2>⚡ Modo rápido: rutina para subir el resto de archivos</h2>
+      <p>
+        Una vez hecho <strong>el primer repositorio y la primera subida</strong>, luego ya no necesitas repetir todo el
+        proceso.
+        A partir de ahí, la rutina normal para subir cambios nuevos es esta:
+      </p>
+
+      <pre id="fast-mode"><code>git add .
+git commit -m <span class="arg">"Descripcion del cambio"</span>
+git push</code></pre>
+
+      <div class="actions">
+        <button onclick="copyBlock('fast-mode', 'msg-fast')">Copiar rutina rápida</button>
+      </div>
+      <div id="msg-fast" class="copy-msg"></div>
+
+      <p>
+        Ejemplo real:
+      </p>
+
+      <pre><code>git add .
+git commit -m <span class="arg">"Añadido index.html"</span>
+git push</code></pre>
+    </section>
+
+    <!-- PARA CAMBIAR DE DIRECTORIOS -->
+
+    <div class="step">
+      <h2>📂 Acceder a carpetas de Windows desde <span class="gitbash">Git Bash</span></h2>
+
+      <h3><code> <span class="com">cd directorio</span> </code></h3>
+      <p>Cambia al directorio deseado.</p>
+
+      <p style="margin-top:15px;">
+        En <span class="gitbash">Git Bash</span>, las rutas de Windows se representan usando el formato de Linux.
+        Por ejemplo, la unidad <span class="raiz"><strong>C:\</strong></span> se convierte en <span
+          class="raiz"><strong>/c/</strong></span>
+      </p>
+
+      <p>
+        Si queremos acceder a un directorio llamado <span class="raiz"><strong>Laboratorio</strong> </span> en el disco
+        <span class="raiz"><strong>C</strong> </span>
+        el comando sería:
+      </p>
+
+      <pre><code>cd <span class="raiz">/c/Laboratorio</span></code></pre>
+
+      <p>Ejemplo completo:</p>
+
+      <pre><code>cd <span class="raiz">/c/Laboratorio/repositorios</span></code></pre>
+
+      <p>
+        Esto nos llevará directamente a ese directorio dentro del sistema de archivos.
+      </p>
+    </div>
+
+    <!-- FIN -->
+
+    <section class="step">
+      <h2>📟 Comandos útiles para Git Bash</span></h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3><code><span class="com">pwd</span> </code></h3>
+          <p>Muestra el directorio actual.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">ls</span> </code></h3>
+          <p>Muestra la lista de archivos y carpetas del directorio actual.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">ls -al</span> </code></h3>
+          <p>Muestra todos los archivos y carpetas del directorio actual en formato detallado, incluyendo archivos
+            ocultos y permisos.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">clear</span> </code></h3>
+          <p>Limpia la pantalla.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">git pull</span> </code></h3>
+          <p>Git descargará y aplicará los cambios del repositorio remoto a tu proyecto local</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">git status</span> </code></h3>
+          <p>Muestra el estado del repositorio y los archivos modificados del proyecto.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">cd</span> <span class="arg">directorio</span></code></h3>
+          <p>Cambia al directorio deseado.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">cd ..</span> </code></h3>
+          <p>Sube al directorio superior.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">mkdir</span> <span class="arg">directorio</span></code></h3>
+          <p>Crea un nuevo directorio.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">touch</span> <span class="arg">archivo</span></code></h3>
+          <p>Crea un archivo nuevo.</p>
+        </div>
+
+        <div class="card">
+          <h3><code><span class="com">rm</span> <span class="arg">archivo</span></code></h3>
+          <p>Borra un archivo.</p>
+        </div>
+
+        <div class="card">
+          <h3><code> <span class="com">rmdir</span> <span class="arg">directorio</span></code></h3>
+          <p>Borra una directorio vacío.</p>
+        </div>
+
+        <div class="card">
+          <h3><code> <span class="com">rm -r</span> <span class="arg">directorio</span></code></h3>
+          <p>Borra un directorio con todo su contenido.</p>
+        </div>
+      </div>
+
+      <!-- Sección plegable para eliminar repositorios y conexiones -->
+      <details style="margin-top:25px;">
+        <summary class="danger-summary" style="cursor:pointer;">
+          Zona de eliminación de repositorios (clic para ver)
+        </summary>
+
+        <div class="notice" style="margin-top:15px;">
+          ⚠️<strong> Advertencia:</strong> el comando <code>rm -rf</code> elimina archivos y carpetas sin pedir
+          confirmación.
+          Úsalo con cuidado.
+        </div>
+
+        <section class="step danger-zone">
+
+          <h2>💡 Zona de eliminación de repositorios</h2>
+
+          <p>
+            En esta sección encontrarás los comandos para eliminar repositorios o
+            desconectarlos de GitHub.
+            Úsalos con cuidado.
+          </p>
+
+          <h3>1️⃣ Eliminar completamente el repositorio del ordenador</h3>
+
+          <pre id="rm-repo"><code>rm -rf nombre-del-repositorio</code></pre>
+
+          <div class="actions">
+            <button onclick="copyBlock('rm-repo','msg-rmrepo')">Copiar comando</button>
+          </div>
+          <div id="msg-rmrepo" class="copy-msg"></div>
+
+          <p>
+            Este comando elimina la carpeta completa del proyecto en tu ordenador.
+            Todos los archivos desaparecerán del equipo.
+          </p>
+
+
+          <h3>2️⃣ Quitar Git del proyecto pero mantener los archivos</h3>
+
+          <pre id="rm-git"><code>rm -rf .git</code></pre>
+
+          <div class="actions">
+            <button onclick="copyBlock('rm-git','msg-rmgit')">Copiar comando</button>
+          </div>
+          <div id="msg-rmgit" class="copy-msg"></div>
+
+          <p>
+            Este comando elimina el repositorio de Git del proyecto,
+            pero mantiene todos los archivos.
+            La carpeta seguirá existiendo, pero ya no estará gestionada por Git.
+          </p>
+
+
+          <h3>3️⃣ Desconectar el proyecto del repositorio remoto de GitHub</h3>
+
+          <pre id="remove-origin"><code>git remote remove origin</code></pre>
+
+          <div class="actions">
+            <button onclick="copyBlock('remove-origin','msg-origin')">Copiar comando</button>
+          </div>
+          <div id="msg-origin" class="copy-msg"></div>
+
+          <p>
+            Este comando elimina la conexión entre tu repositorio local
+            y el repositorio remoto en GitHub.
+            El proyecto seguirá existiendo en tu ordenador.
+          </p>
+
+
+          <div class="notice">
+            🌐 <strong>Importante:</strong> estos comandos solo afectan a tu ordenador.
+            El repositorio seguirá existiendo en GitHub hasta que lo elimines desde la web.
+          </div>
+
+          <!-- Sección plegable para eliminar repositorio en GitHub -->
+          <details style="margin-top:25px;">
+            <summary class="danger-summary" style="cursor:pointer;">
+              Eliminar el repositorio desde GitHub (clic para ver)
+            </summary>
+
+            <h3>Para borrar completamente un repositorio debes hacerlo desde la web de GitHub.</h3>
+
+            <div class="terminal-box">
+
+              <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">GitHub</span>
+              </div>
+
+              <pre id="delete-github"><code>
+1. Entra en el repositorio que quieres eliminar en GitHub.
+2. Haz clic en la pestaña Settings.
+3. Desplázate hasta la sección Danger Zone.
+4. Pulsa el botón "Delete this repository".
+5. Escribe el nombre del repositorio para confirmar la eliminación.
+6. Revisa tu correo e introduce el código de verificación para confirmar la eliminación del repositorio.
+</code></pre>
+
+            </div>
+
+            <div class="actions">
+              <button onclick="copyBlock('delete-github','msg-delete')">Copiar pasos</button>
+            </div>
+
+            <div id="msg-delete" class="copy-msg"></div>
+
+          </details>
+
+        </section>
+
+      </details>
+
+    </section>
+
+    <section class="step">
+      <h2>💡 Resumen rápido del orden correcto</h2>
+
+      <div class="terminal-box">
+
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">GitHub</span>
+        </div>
+
+        <pre id="summary-order"><code>1. Crear repositorio en GitHub
+2. Copiar la URL del repositorio
+3. Preparar carpeta local y archivo README.md
+4. Abrir Git Bash y entrar en la carpeta
+5. git init
+6. git add .
+7. git commit -m <span class="raiz">"Primer commit"</span>
+8. git branch -M main
+9. git remote add origin <span class="raiz">URL_DEL_REPOSITORIO</span>
+10. git push -u origin main
+11. git status</code></pre>
+
+      </div> <!-- AQUÍ faltaba cerrar -->
+
+      <div class="actions">
+        <button onclick="copyBlock('summary-order', 'msg-summary')">
+          Copiar resumen
+        </button>
+      </div>
+
+      <div id="msg-summary" class="copy-msg"></div>
+
+    </section>
+
+    <div class="footer">
+      Tutorial creado para el repositorio de prácticas - © 2026 NoauraSoft — Noa Antonio García
+    </div>
+
+  </div>
+
+  <button id="btnSubir" title="Volver arriba">↑</button>
+
+  <script>
+    function copyBlock(id, msgId) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById(msgId).textContent = "Copiado al portapapeles ✅";
+        setTimeout(() => {
+          document.getElementById(msgId).textContent = "";
+        }, 2200);
+      }).catch(() => {
+        document.getElementById(msgId).textContent = "No se pudo copiar automáticamente";
+      });
+    }
+
+    /* botón para subir */
+
+    const btnSubir = document.getElementById("btnSubir");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        btnSubir.style.display = "block";
+      } else {
+        btnSubir.style.display = "none";
+      }
+    });
+
+    btnSubir.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    /* Efecto para copiar la URL del Repositorio de GitHub */
+
+    document.getElementById("copyCmd").addEventListener("click", () => {
+
+      const url = document.getElementById("repoURL").value;
+      const comando = "git remote add origin " + url;
+
+      navigator.clipboard.writeText(comando);
+
+      const btn = document.getElementById("copyCmd");
+      btn.textContent = "Copiado ✔";
+
+      setTimeout(() => {
+        btn.textContent = "Copiar";
+      }, 1500);
+
+    });
+
+    /* GUIA */
+    const btnGuia = document.getElementById("btnGuia");
+    const guiaModal = document.getElementById("guiaModal");
+    const cerrarGuia = document.getElementById("cerrarGuia");
+
+    btnGuia.onclick = () => {
+      guiaModal.style.display = "flex";
+    }
+
+    cerrarGuia.onclick = () => {
+      guiaModal.style.display = "none";
+    }
+
+
+    /* PROGRAMAS NECESARIOS */
+    const modalProgramas = document.getElementById("programasModal");
+    const btnProgramas = document.getElementById("btnProgramas");
+    const cerrarProgramas = document.getElementById("cerrarProgramas");
+
+    btnProgramas.onclick = () => {
+      modalProgramas.style.display = "flex";
+    }
+
+    cerrarProgramas.onclick = () => {
+      modalProgramas.style.display = "none";
+    }
+
+
+    /* CERRAR MODALES AL HACER CLICK FUERA */
+    window.onclick = (e) => {
+
+      if (e.target === guiaModal) {
+        guiaModal.style.display = "none";
+      }
+
+      if (e.target === modalProgramas) {
+        modalProgramas.style.display = "none";
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>
