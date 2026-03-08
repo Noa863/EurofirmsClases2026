@@ -113,9 +113,12 @@ El tutorial está construido como una pequeña **web interactiva**, para que los
 
 **Noa Antonio García**
 
-Arquitecta de software en formación  
+Arquitecta  
 Desarrollo web • Inteligencia artificial • Arquitectura de software
 
 ---
+## Licencia
+
+MIT License Noa Antonio García
 
 © 2026 **NoauraSoft**
