@@ -130,7 +130,7 @@ git clone https://github.com/Noa863/EurofirmsClases2026.git
 ### 2️⃣ Entra en la carpeta del tutorial
 
 ```bash
-cd EurofirmsClases2026/Tutorial-git-bash
+cd EurofirmsClases2026/Tutorial-git-bash-v2
 ```
 
 ### 3️⃣ Abre el archivo en tu navegador
