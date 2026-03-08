@@ -157,5 +157,8 @@ Arquitecta
 Desarrollo web • Inteligencia artificial • Arquitectura de software
 
 ---
+## Licencia
+
+MIT License Noa Antonio García
 
 © 2026 **NoauraSoft**
