@@ -1,0 +1,37 @@
+/* Estilo para el título principal */
+
+h1{
+    color: red;
+    font-family: Verdana;
+}
+
+/* Estilo para el subtítulo usando el ID */
+
+#subtitulo1{
+    color: purple;
+}
+
+/* Estilo para todos los párrafos */
+
+p{
+    color: magenta;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Estilo para los enlaces */
+
+a{
+    color: green;
+    font-weight: bold;
+    font-style: italic;
+}
+
+div > p {
+    color: green;
+}
+
+div > p {
+    color: orangered;
+}

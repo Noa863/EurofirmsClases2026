@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- Indica al navegador que el documento usa HTML5 -->
+
+<html lang="es">
+<!-- Elemento principal de la página y define que el idioma es español -->
+
+<head>
+    <!-- El head es el "cerebro" de la página. Contiene configuraciones invisibles -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar correctamente caracteres como ñ, á, é -->
+
+    <title>Ejercicio selectores</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+</head>
+
+<style>
+    /* Aquí empieza el CSS que define los estilos de la página */
+
+    p {
+        color: magenta;
+    }
+
+    /* Este selector aplica a TODOS los <p> de la página
+       Cambia el color del texto a magenta */
+
+    div>p {
+        color: green;
+    }
+
+    /* Este selector usa "hijo directo" >
+       Solo cambia el color a verde de los <p>
+       que sean hijos directos de un <div> */
+
+    .especial {
+        background-color: yellow;
+    }
+
+    /* Este selector usa una clase
+       Aplica un fondo amarillo a cualquier elemento
+       que tenga class="especial" */
+
+    div p {
+        font-style: italic;
+    }
+
+    /* Este selector selecciona cualquier <p>
+       que esté dentro de un <div> (aunque esté dentro de otras etiquetas)
+       Cambia el texto a cursiva */
+</style>
+
+<body>
+    <!-- Todo lo que esté dentro del body será visible en la página -->
+
+    <p>Primer párrafo fuera del div 🌺</p>
+    <!-- Párrafo normal fuera del div
+         Se aplicará el estilo general de los <p> (magenta) -->
+
+    <p>Segundo párrafo fuera del div 🌸</p>
+    <!-- Otro párrafo fuera del div
+         También se verá en magenta -->
+
+    <div>
+        <!-- Contenedor div que agrupa elementos -->
+
+        <p>Párrafo dentro del div 🏵️</p>
+        <!-- Este párrafo es hijo directo del div
+             Recibirá:
+             - color verde (div > p)
+             - texto en cursiva (div p) -->
+
+        <p class="especial">Párrafo dentro del div con clase 💕</p>
+        <!-- Este párrafo tiene una clase llamada "especial"
+             Recibirá:
+             - fondo amarillo
+             - color verde (por ser hijo directo del div)
+             - cursiva (por estar dentro del div) -->
+
+        <section>
+            <!-- Section se usa para agrupar contenido relacionado -->
+
+            <p>Párrafo dentro de section que está dentro del div 💕</p>
+            <!-- Este párrafo está dentro de section que está dentro de div
+                 Recibirá:
+                 - cursiva (div p)
+                 - color magenta (porque no es hijo directo del div) -->
+
+        </section>
+
+    </div>
+
+    <!-- 
+Qué pasará
+
+Los p fuera del div → magenta
+Los p hijos directos del div → verde
+El p con clase → fondo amarillo
+Los p dentro del div (incluido el de section) → cursiva
+
+
+Qué se está practicando aquí
+
+Este ejercicio sirve para entender:
+
+- selectores de etiqueta
+- selectores de clase
+- hijo directo >
+- descendiente div p
+-->
+
+</body>
+
+</html>
