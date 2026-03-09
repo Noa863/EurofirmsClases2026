@@ -14,8 +14,8 @@
 
 ## Demo
 
-👉 **Ver el ejercicio en vivo**  
-https://noa863.github.io/EurofirmsClases2026/Tutorial-House/House/
+👉 **Ver el ejercicio en vivo**
+https://noa863.github.io/EurofirmsClases2026/Tutorial-House/
 
 ---
 
@@ -65,18 +65,6 @@ Al finalizar esta práctica el estudiante debería ser capaz de:
 5. Entender cómo afecta la estructura HTML al comportamiento del CSS.
 
 ---
-
-# 📂 Estructura del ejercicio
-
-El ejercicio requiere exactamente la siguiente estructura:
-
-- Dos `<p>` fuera del `<div>`
-- Un `<div>` que representa la casa
-- Dentro del `<div>`:
-  - un `<p>` normal
-  - un `<p>` con clase
-- Un `<section>` dentro del `<div>`
-- Dentro del `<section>` un `<p>`
 
 # 📂 Estructura del ejercicio
 
