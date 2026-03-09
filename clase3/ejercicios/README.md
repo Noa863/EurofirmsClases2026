@@ -14,8 +14,8 @@
 
 ## Demo
 
-👉 **Ver el ejercicio en vivo**
-https://noa863.github.io/EurofirmsClases2026/House-git/
+👉 **Ver el ejercicio en vivo**  
+https://noa863.github.io/EurofirmsClases2026/clase3/ejercicios/Home-git
 
 ---
 
@@ -78,6 +78,18 @@ El ejercicio requiere exactamente la siguiente estructura:
 - Un `<section>` dentro del `<div>`
 - Dentro del `<section>` un `<p>`
 
+# 📂 Estructura del ejercicio
+
+El ejercicio requiere exactamente la siguiente estructura:
+
+- Dos `<p>` fuera del `<div>`
+- Un `<div>` que representa la casa
+- Dentro del `<div>`:
+  - un `<p>` normal
+  - un `<p>` con clase
+- Un `<section>` dentro del `<div>`
+- Dentro del `<section>` un `<p>`
+
 ### Fragmento del HTML
 
 ```html
@@ -93,12 +105,41 @@ El ejercicio requiere exactamente la siguiente estructura:
   </p>
 
   <section>
-
     <p>
       Niño dentro de la habitación
     </p>
-
   </section>
+
+</div>
+
+
+## Vista del proyecto
+
+![Tutorial Git](img/tutorial-preview.png)
+
+---
+
+## Cómo usar el proyecto
+
+### 1️⃣ Clona el repositorio
+
+```bash
+git clone https://github.com/Noa863/EurofirmsClases2026.git
+```
+
+### 2️⃣ Entra en la carpeta del tutorial
+
+```bash
+cd EurofirmsClases2026/Tutorial-git-bash-v2
+```
+
+### 3️⃣ Abre el archivo en tu navegador
+
+```
+index.html
+```
+
+---
 
 ## Objetivo del proyecto
 
