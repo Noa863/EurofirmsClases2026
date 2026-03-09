@@ -100,7 +100,7 @@ El ejercicio requiere exactamente la siguiente estructura:
 
 </div>
 
-
+```
 ## Vista del proyecto
 
 ![Tutorial Git](img/tutorial-preview.png)
