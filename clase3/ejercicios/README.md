@@ -15,7 +15,7 @@
 ## Demo
 
 👉 **Ver el ejercicio en vivo**  
-https://noa863.github.io/EurofirmsClases2026/clase3/ejercicios/Home-git
+https://noa863.github.io/EurofirmsClases2026/clase3/ejercicios/
 
 ---
 
