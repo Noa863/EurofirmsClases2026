@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>La casa de los niños HTML</title>
+
+<style>
+
+/* Fondo oscuro para toda la página */
+body{
+    background-color:#1e1e2f;
+    color:white;
+    font-family:Arial;
+    padding:30px;
+}
+
+/* Todos los niños (todos los <p>) */
+p{
+    background:#2f2f44;
+    padding:12px;
+    border-radius:10px;
+    margin:10px;
+}
+
+/* Hijos directos del div (niños en la sala) */
+div > p{
+    color:#00ff9d;
+    font-weight:bold;
+}
+
+/* Niña especial */
+.especial{
+    background:#ff66de;
+    color:black;
+}
+
+/* Cualquier niño dentro de la casa */
+div p{
+    font-style:italic;
+}
+
+/* La casa */
+div{
+    border:3px solid #4aa3ff;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+/* La habitación */
+section{
+    border:2px dashed #ff7aa2;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+h1{
+    color:#ff7aa2;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🏠 La casa de los niños HTML</h1>
+
+<!-- Niños fuera de la casa -->
+<p>🧒 Niño que vive fuera de la casa</p>
+<p>👧 Niña que vive fuera de la casa</p>
+
+<!-- CASA -->
+<div>
+
+<p>👧 Niña que está en la sala de la casa</p>
+
+<p class="especial">👧 Niña especial con camiseta rosa</p>
+
+<!-- HABITACIÓN -->
+<section>
+
+<p>🧒 Niño que está en una habitación dentro de la casa</p>
+
+</section>
+
+</div>
+
+<!--
+CASA (div)
+│
+├── 👧 niña
+├── 👧 niña especial
+│
+└── 🚪 habitación (section)
+        └── 🧒 niño
+
+| Niño                | Qué pasa       |
+| ------------------- | -------------- |
+| 👧 fuera de la casa | color normal   |
+| 👧 en la sala       | verde          |
+| 👧 especial         | fondo amarillo |
+| 🧒 en la habitación | cursiva        |
+
+        -->
+
+</body>
+
+</html>
